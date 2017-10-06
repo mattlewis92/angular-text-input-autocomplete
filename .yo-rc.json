@@ -1,0 +1,14 @@
+{
+  "generator-angular-library": {
+    "githubUsername": "mattlewis92",
+    "githubRepoName": "angular-text-input-autocomplete",
+    "npmModuleName": "angular-text-input-autocomplete",
+    "moduleGlobal": "angularTextInputAutocomplete",
+    "ngModuleName": "TextInputAutocompleteModule",
+    "selectorPrefix": "mwl",
+    "projectTitle": "angular text input autocomplete",
+    "projectDescription": "A angular 4+ directive for adding autocomplete functionality to text input elements, built around composability",
+    "authorName": "Matt Lewis",
+    "packageManager": "npm"
+  }
+}
