@@ -1,0 +1,965 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-text-input-autocomplete documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-text-input-autocomplete documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">angular-text-input-autocomplete documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="./license.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>LICENSE
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse "
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/DemoModule.html" >DemoModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/TextInputAutocompleteModule.html" >TextInputAutocompleteModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/DemoComponent.html" >DemoComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/TextInputAutocompleteContainerComponent.html" >TextInputAutocompleteContainerComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/TextInputAutocompleteMenuComponent.html"  data-type="entity-link" class="active" >TextInputAutocompleteMenuComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-directives-links"
+                            >
+                            <span class="fa fa-code"></span>
+                            <span>Directives</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-directives-links"
+                            >
+                                <li class="link">
+                                    <a href="../directives/TextInputAutocompleteDirective.html" >TextInputAutocompleteDirective</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/ChoiceSelectedEvent.html" >ChoiceSelectedEvent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">angular-text-input-autocomplete documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./license.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>LICENSE
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse "
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/DemoModule.html" >DemoModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/TextInputAutocompleteModule.html" >TextInputAutocompleteModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/DemoComponent.html" >DemoComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/TextInputAutocompleteContainerComponent.html" >TextInputAutocompleteContainerComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/TextInputAutocompleteMenuComponent.html"  data-type="entity-link" class="active" >TextInputAutocompleteMenuComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#directives-links"
+                   >
+                                   <span class="fa fa-code"></span>
+                                   <span>Directives</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="directives-links"
+                   >
+                                       <li class="link">
+                                           <a href="../directives/TextInputAutocompleteDirective.html" >TextInputAutocompleteDirective</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/ChoiceSelectedEvent.html" >ChoiceSelectedEvent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>TextInputAutocompleteMenuComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+
+    <li>
+        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/text-input-autocomplete-menu.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>
+    .dropdown-menu {
+      display: block;
+    }
+  </code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;ul
+  *ngIf&#x3D;&quot;choices?.length &gt; 0&quot;
+  class&#x3D;&quot;dropdown-menu&quot;
+  [style.top.px]&#x3D;&quot;position?.top&quot;
+  [style.left.px]&#x3D;&quot;position?.left&quot;&gt;
+  &lt;li
+    *ngFor&#x3D;&quot;let choice of choices&quot;
+    [class.active]&#x3D;&quot;activeChoice &#x3D;&#x3D;&#x3D; choice&quot;&gt;
+    &lt;a
+      href&#x3D;&quot;javascript:;&quot;
+      (click)&#x3D;&quot;selectChoice.next(choice)&quot;&gt;
+      {{ choice }}
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                 <a href="#_choices">_choices</a>
+                            </li>
+                            <li>
+                                 <a href="#activeChoice">activeChoice</a>
+                            </li>
+                            <li>
+                                 <a href="#choiceLoadError">choiceLoadError</a>
+                            </li>
+                            <li>
+                                 <a href="#choiceLoading">choiceLoading</a>
+                            </li>
+                            <li>
+                                 <a href="#choices">choices</a>
+                            </li>
+                            <li>
+                                 <a href="#position">position</a>
+                            </li>
+                            <li>
+                                 <a href="#searchText">searchText</a>
+                            </li>
+                            <li>
+                                 <a href="#selectChoice">selectChoice</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#document:keydown.ArrowDown">document:keydown.ArrowDown</a>
+                            </li>
+                            <li>
+                                <a href="#document:keydown.ArrowUp">document:keydown.ArrowUp</a>
+                            </li>
+                            <li>
+                                <a href="#document:keydown.Enter">document:keydown.Enter</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+
+
+
+    <section>
+        <h3>HostListeners</h3>        <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="document:keydown.ArrowDown"></a>
+                            <span class="name"><b> document:keydown.ArrowDown</b><a href="#document:keydown.ArrowDown"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Arguments : </i><code>'$event' </code>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>document:keydown.ArrowDown(event: KeyboardEvent)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:51</a></div>
+                                </td>
+                            </tr>
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="document:keydown.ArrowUp"></a>
+                            <span class="name"><b> document:keydown.ArrowUp</b><a href="#document:keydown.ArrowUp"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Arguments : </i><code>'$event' </code>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>document:keydown.ArrowUp(event: KeyboardEvent)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:60</a></div>
+                                </td>
+                            </tr>
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="document:keydown.Enter"></a>
+                            <span class="name"><b> document:keydown.Enter</b><a href="#document:keydown.Enter"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Arguments : </i><code>'$event' </code>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>document:keydown.Enter(event: KeyboardEvent)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:69</a></div>
+                                </td>
+                            </tr>
+    
+                </tbody>
+            </table>
+    </section>
+
+
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="_choices"></a>
+                            <span class="name"><b> _choices</b><a href="#_choices"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>_choices:     <code>any[]</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>any[]</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:37</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="activeChoice"></a>
+                            <span class="name"><b> activeChoice</b><a href="#activeChoice"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>activeChoice:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:33</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="choiceLoadError"></a>
+                            <span class="name"><b> choiceLoadError</b><a href="#choiceLoadError"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>choiceLoadError:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:35</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="choiceLoading"></a>
+                            <span class="name"><b> choiceLoading</b><a href="#choiceLoading"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>choiceLoading:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>false</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:36</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="choices"></a>
+                            <span class="name"><b> choices</b><a href="#choices"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>choices:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:46</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="position"></a>
+                            <span class="name"><b> position</b><a href="#position"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>position:     <code>literal type</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>literal type</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:31</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="searchText"></a>
+                            <span class="name"><b> searchText</b><a href="#searchText"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>searchText:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:34</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectChoice"></a>
+                            <span class="name"><b> selectChoice</b><a href="#selectChoice"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>selectChoice:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:32</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+    </section>
+</div>
+
+
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">import { Component, HostListener } from &#x27;@angular/core&#x27;;
+import { Subject } from &#x27;rxjs/Subject&#x27;;
+
+@Component({
+  template: &#x60;
+    &lt;ul 
+      *ngIf&#x3D;&quot;choices?.length &gt; 0&quot;
+      class&#x3D;&quot;dropdown-menu&quot;
+      [style.top.px]&#x3D;&quot;position?.top&quot;
+      [style.left.px]&#x3D;&quot;position?.left&quot;&gt;
+      &lt;li 
+        *ngFor&#x3D;&quot;let choice of choices&quot;
+        [class.active]&#x3D;&quot;activeChoice &#x3D;&#x3D;&#x3D; choice&quot;&gt;
+        &lt;a
+          href&#x3D;&quot;javascript:;&quot;
+          (click)&#x3D;&quot;selectChoice.next(choice)&quot;&gt;
+          {{ choice }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &#x60;,
+  styles: [
+    &#x60;
+    .dropdown-menu {
+      display: block;
+    }
+  &#x60;
+  ]
+})
+export class TextInputAutocompleteMenuComponent {
+  position: { top: number; left: number };
+  selectChoice &#x3D; new Subject();
+  activeChoice: any;
+  searchText: string;
+  choiceLoadError: any;
+  choiceLoading &#x3D; false;
+  _choices: any[];
+
+  set choices(choices: any[]) {
+    this._choices &#x3D; choices;
+    if (choices.indexOf(this.activeChoice) &#x3D;&#x3D;&#x3D; -1 &amp;&amp; choices.length &gt; 0) {
+      this.activeChoice &#x3D; choices[0];
+    }
+  }
+
+  get choices() {
+    return this._choices;
+  }
+
+  @HostListener(&#x27;document:keydown.ArrowDown&#x27;, [&#x27;$event&#x27;])
+  onArrowDown(event: KeyboardEvent) {
+    event.preventDefault();
+    const index &#x3D; this.choices.indexOf(this.activeChoice);
+    if (this.choices[index + 1]) {
+      this.activeChoice &#x3D; this._choices[index + 1];
+    }
+  }
+
+  @HostListener(&#x27;document:keydown.ArrowUp&#x27;, [&#x27;$event&#x27;])
+  onArrowUp(event: KeyboardEvent) {
+    event.preventDefault();
+    const index &#x3D; this.choices.indexOf(this.activeChoice);
+    if (this.choices[index - 1]) {
+      this.activeChoice &#x3D; this._choices[index - 1];
+    }
+  }
+
+  @HostListener(&#x27;document:keydown.Enter&#x27;, [&#x27;$event&#x27;])
+  onEnter(event: KeyboardEvent) {
+    if (this.choices.indexOf(this.activeChoice) &gt; -1) {
+      event.preventDefault();
+      this.selectChoice.next(this.activeChoice);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade" id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ul  *ngIf="choices?.length > 0"  class="dropdown-menu"  [style.top.px]="position?.top"  [style.left.px]="position?.left">  <li    *ngFor="let choice of choices"    [class.active]="activeChoice === choice">    <a      href="javascript:;"      (click)="selectChoice.next(choice)">      {{ choice }}    </a>  </li></ul></div>'
+    var COMPONENTS = [{'name': 'DemoComponent', 'selector': 'mwl-demo-app'},{'name': 'TextInputAutocompleteContainerComponent', 'selector': 'mwl-text-input-autocomplete-container'},{'name': 'TextInputAutocompleteMenuComponent', 'selector': ''}];
+    var DIRECTIVES = [{'name': 'TextInputAutocompleteDirective', 'selector': 'textarea[mwlTextInputAutocomplete],input[type&#x3D;&quot;text&quot;][mwlTextInputAutocomplete]'}];
+    var ACTUAL_COMPONENT = {'name': 'TextInputAutocompleteMenuComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>
