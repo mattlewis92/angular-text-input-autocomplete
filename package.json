@@ -1,6 +1,6 @@
 {
   "name": "angular-text-input-autocomplete",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A angular 4+ directive for adding autocomplete functionality to text input elements, built around composability",
   "main": "./bundles/angular-text-input-autocomplete.umd.js",
   "module": "./index.js",
