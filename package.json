@@ -64,6 +64,7 @@
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.4.4",
     "@angular/language-service": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
@@ -99,6 +100,7 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
+    "keyboardevent-key-polyfill": "^1.1.0",
     "lint-staged": "^4.0.2",
     "mocha": "^4.0.1",
     "offline-plugin": "^4.8.3",
@@ -122,5 +124,8 @@
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.0 <6.0.0"
+  },
+  "dependencies": {
+    "textarea-caret": "^3.0.2"
   }
 }

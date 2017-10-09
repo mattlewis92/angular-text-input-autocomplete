@@ -15,9 +15,13 @@ import 'core-js/es6/set';
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
+import { polyfill as keyboardEventKeyPolyfill } from 'keyboardevent-key-polyfill';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DemoModule } from './demo.module';
+
+// required for older browsers
+keyboardEventKeyPolyfill();
 
 declare const ENV: string;
 if (ENV === 'production') {

@@ -29,15 +29,23 @@ Install through npm:
 npm install --save angular-text-input-autocomplete
 ```
 
+For older browsers you will need the `keyboardevent-key-polyfill` polyfill:
+```
+npm install --save keyboardevent-key-polyfill
+```
+
 Then include in your apps module:
 
 ```typescript
+import { polyfill as keyboardEventKeyPolyfill } from 'keyboardevent-key-polyfill';
 import { NgModule } from '@angular/core';
 import { TextInputAutocompleteModule } from 'angular-text-input-autocomplete';
 
+keyboardEventKeyPolyfill();
+
 @NgModule({
   imports: [
-    TextInputAutocompleteModule.forRoot()
+    TextInputAutocompleteModule
   ]
 })
 export class MyModule {}
@@ -48,9 +56,32 @@ Finally use in one of your apps components:
 import { Component } from '@angular/core';
 
 @Component({
-  template: '<hello-world></hello-world>'
+  selector: 'mwl-demo-app',
+  template: `
+    <mwl-text-input-autocomplete-container>
+      <textarea
+        placeholder="Type @ to search..."
+        class="form-control"
+        rows="5"
+        [(ngModel)]="formControlValue"
+        mwlTextInputAutocomplete
+        [findChoices]="findChoices"
+        [getChoiceLabel]="getChoiceLabel">
+      </textarea>
+    </mwl-text-input-autocomplete-container>
+  `
 })
-export class MyComponent {}
+export class DemoComponent {
+  formControlValue = '';
+
+  findChoices(searchText: string) {
+    return ['John', 'Jane', 'Jonny'].filter(item => item.toLowerCase().includes(searchText.toLowerCase()));
+  }
+
+  getChoiceLabel(choice: string) {
+    return `@${choice} `;
+  }
+}
 ```
 
 You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-text-input-autocomplete/blob/master/demo/demo.component.ts).
@@ -66,6 +97,9 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
 ## Documentation
 All documentation is auto-generated from the source via [compodoc](https://compodoc.github.io/compodoc/) and can be viewed here:
 https://mattlewis92.github.io/angular-text-input-autocomplete/docs/
+
+## Related
+[angular-text-input-highlight](https://github.com/mattlewis92/angular-text-input-highlight) - a component for highlighting parts of a textarea
 
 ## Development
 

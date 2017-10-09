@@ -1,16 +1,21 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HelloWorldComponent } from './hello-world.component';
+import { TextInputAutocompleteDirective } from './text-input-autocomplete.directive';
+import { TextInputAutocompleteContainerComponent } from './text-input-autocomplete-container.component';
+import { TextInputAutocompleteMenuComponent } from './text-input-autocomplete-menu.component';
 
 @NgModule({
-  declarations: [HelloWorldComponent],
+  declarations: [
+    TextInputAutocompleteDirective,
+    TextInputAutocompleteContainerComponent,
+    TextInputAutocompleteMenuComponent
+  ],
   imports: [CommonModule],
-  exports: [HelloWorldComponent]
+  exports: [
+    TextInputAutocompleteDirective,
+    TextInputAutocompleteContainerComponent,
+    TextInputAutocompleteMenuComponent
+  ],
+  entryComponents: [TextInputAutocompleteMenuComponent]
 })
-export class TextInputAutocompleteModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: TextInputAutocompleteModule
-    };
-  }
-}
+export class TextInputAutocompleteModule {}
