@@ -34,7 +34,7 @@ export class TextInputAutocompleteMenuComponent {
   searchText: string;
   choiceLoadError: any;
   choiceLoading = false;
-  _choices: any[];
+  private _choices: any[];
 
   set choices(choices: any[]) {
     this._choices = choices;
