@@ -953,14 +953,14 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   ) {}
 
   @HostListener(&#x27;keypress&#x27;, [&#x27;$event.key&#x27;])
-  private onKeypress(key: string) {
+  onKeypress(key: string) {
     if (key &#x3D;&#x3D;&#x3D; this.triggerCharacter) {
       this.showMenu();
     }
   }
 
   @HostListener(&#x27;input&#x27;, [&#x27;$event.target.value&#x27;])
-  private onChange(value: string) {
+  onChange(value: string) {
     if (this.menu) {
       if (value[this.menu.triggerCharacterPosition] !&#x3D;&#x3D; this.triggerCharacter) {
         this.hideMenu();
@@ -1003,7 +1003,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   }
 
   @HostListener(&#x27;blur&#x27;)
-  private onBlur() {
+  onBlur() {
     if (this.menu) {
       this.menu.lastCaretPosition &#x3D; this.elm.nativeElement.selectionStart;
     }
