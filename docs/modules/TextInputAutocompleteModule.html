@@ -48,14 +48,14 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./changelog.html"
-                                        >
+                                        <a href="../changelog.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>CHANGELOG
                                     </a>
                                 </li>
                                 <li class="link">
-                                    <a href="./license.html"
-                                        >
+                                        <a href="../license.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -77,9 +77,6 @@
                                 id="xs-modules-links"
                             >
                                 <li class="link">
-                                    <a href="../modules/DemoModule.html" >DemoModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/TextInputAutocompleteModule.html"  data-type="entity-link" class="active" >TextInputAutocompleteModule</a>
                                 </li>
                         </ul>
@@ -96,9 +93,6 @@
                         <ul class="links collapse "
                                 id="xs-components-links"
                             >
-                                <li class="link">
-                                    <a href="../components/DemoComponent.html" >DemoComponent</a>
-                                </li>
                                 <li class="link">
                                     <a href="../components/TextInputAutocompleteContainerComponent.html" >TextInputAutocompleteContainerComponent</a>
                                 </li>
@@ -127,6 +121,7 @@
             
             
             
+            
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
                                 data-target="#xs-interfaces-links"
@@ -145,22 +140,6 @@
                     </li>
             
             
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-miscellaneous-links"
-                            >
-                            <span class="fa fa-cubes"></span>
-                            <span>Miscellaneous</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-miscellaneous-links"
-                            >
-                                <li class="link">
-                                  <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
-                                </li>
-                        </ul>
-                    </li>
             
             
             
@@ -209,14 +188,14 @@
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./changelog.html"
-                                               >
+                                               <a href="../changelog.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>CHANGELOG
                                            </a>
                                        </li>
                                        <li class="link">
-                                           <a href="./license.html"
-                                               >
+                                               <a href="../license.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -238,9 +217,6 @@
                                        id="modules-links"
                    >
                                        <li class="link">
-                                           <a href="../modules/DemoModule.html" >DemoModule</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../modules/TextInputAutocompleteModule.html"  data-type="entity-link" class="active" >TextInputAutocompleteModule</a>
                                        </li>
                                </ul>
@@ -257,9 +233,6 @@
                                <ul class="links collapse "
                                        id="components-links"
                    >
-                                       <li class="link">
-                                           <a href="../components/DemoComponent.html" >DemoComponent</a>
-                                       </li>
                                        <li class="link">
                                            <a href="../components/TextInputAutocompleteContainerComponent.html" >TextInputAutocompleteContainerComponent</a>
                                        </li>
@@ -288,6 +261,7 @@
                    
                    
                    
+                   
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
                                        data-target="#interfaces-links"
@@ -306,22 +280,6 @@
                            </li>
                    
                    
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#miscellaneous-links"
-                   >
-                                   <span class="fa fa-cubes"></span>
-                                   <span>Miscellaneous</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="miscellaneous-links"
-                   >
-                                       <li class="link">
-                                         <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
-                                       </li>
-                               </ul>
-                           </li>
                    
                    
                    
@@ -359,7 +317,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
+    <div class="tab-pane fade active in" id="c-info">
 
         <p class="comment">
             <h3>File</h3>
@@ -386,6 +344,14 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>EntryComponents<a href="https://angular.io/api/core/NgModule#entryComponents" target="_blank" title="Official documentation about module entryComponents"><span class="fa fa-info-circle"></span></a></h3>
+                    <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="../components/TextInputAutocompleteMenuComponent.html">TextInputAutocompleteMenuComponent</a>
+                            </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Exports<a href="https://angular.io/api/core/NgModule#exports" target="_blank" title="Official documentation about module exports"><span class="fa fa-info-circle"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
@@ -404,7 +370,7 @@
     </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
+    <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { TextInputAutocompleteDirective } from &#x27;./text-input-autocomplete.directive&#x27;;
@@ -429,6 +395,7 @@ export class TextInputAutocompleteModule {}
 </code></pre>
     </div>
 </div>
+
 
 
 
