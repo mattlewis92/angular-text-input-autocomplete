@@ -12,8 +12,9 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import getCaretCoordinates from 'textarea-caret';
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 import { TextInputAutocompleteMenuComponent } from './text-input-autocomplete-menu.component';
+import { Subject } from 'rxjs';
 
 export interface ChoiceSelectedEvent {
   choice: any;
@@ -77,6 +78,8 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         lastCaretPosition?: number;
       }
     | undefined;
+
+  private menuHidden$ = new Subject();
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -168,7 +171,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
       };
       this.menu.component.changeDetectorRef.detectChanges();
       this.menu.component.instance.selectChoice
-        .takeUntil(this.menuHidden)
+        .pipe(takeUntil(this.menuHidden$))
         .subscribe(choice => {
           const label = this.getChoiceLabel(choice);
           const textarea: HTMLTextAreaElement = this.elm.nativeElement;
@@ -200,6 +203,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   private hideMenu() {
     if (this.menu) {
       this.menu.component.destroy();
+      this.menuHidden$.next();
       this.menuHidden.emit();
       this.menu = undefined;
     }

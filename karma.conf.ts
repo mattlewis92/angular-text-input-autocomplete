@@ -53,7 +53,7 @@ export default (config: any) => {
             enforce: 'post'
           },
           {
-            test: /node_modules\/@angular\/core\/.+\/core\.es5\.js$/,
+            test: /node_modules\/@angular\/core\/.+\/core\.js$/,
             parser: {
               system: true // disable `System.import() is deprecated and will be removed soon. Use import() instead.` warning
             }
@@ -67,7 +67,7 @@ export default (config: any) => {
           test: /\.(ts|js)($|\?)/i
         }),
         new webpack.ContextReplacementPlugin(
-          /angular(\\|\/)core(\\|\/)@angular/,
+          /angular(\\|\/)core(\\|\/)fesm5/,
           path.join(__dirname, 'src')
         ),
         ...(config.singleRun

@@ -22,7 +22,7 @@ https://mattlewis92.github.io/angular-text-input-autocomplete/
 
 ## About
 
-A angular 4+ directive for adding autocomplete functionality to text input elements, built around composability
+A angular 6+ directive for adding autocomplete functionality to text input elements, built around composability
 
 ## Installation
 

@@ -3,7 +3,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
-// import { AngularCompilerPlugin } from '@ngtools/webpack';
+import { AngularCompilerPlugin } from '@ngtools/webpack';
 import OfflinePlugin from 'offline-plugin';
 
 export default (environment = 'development') => {
@@ -39,7 +39,7 @@ export default (environment = 'development') => {
           }
         ),
         {
-          test: /node_modules\/@angular\/core\/.+\/core\.es5\.js$/,
+          test: /node_modules\/@angular\/core\/.+\/core\.js$/,
           parser: {
             system: true // disable `System.import() is deprecated and will be removed soon. Use import() instead.` warning
           }
@@ -57,11 +57,11 @@ export default (environment = 'development') => {
       overlay: true
     },
     plugins: removeEmpty([
-      /*ifProduction(
+      ifProduction(
         new AngularCompilerPlugin({
           tsConfigPath: './tsconfig-demo.json'
         })
-      ),*/
+      ),
       ifDevelopment(new webpack.HotModuleReplacementPlugin()),
       ifDevelopment(
         new ForkTsCheckerWebpackPlugin({
@@ -70,7 +70,7 @@ export default (environment = 'development') => {
         })
       ),
       new webpack.ContextReplacementPlugin(
-        /angular(\\|\/)core(\\|\/)@angular/,
+        /angular(\\|\/)core(\\|\/)fesm5/,
         path.join(__dirname, 'src')
       ),
       new HtmlWebpackPlugin({
