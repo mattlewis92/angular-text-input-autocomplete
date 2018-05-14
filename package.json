@@ -20,8 +20,7 @@
     "postrelease": "npm run build:clean && npm run gh-pages",
     "commitmsg": "commitlint -e",
     "codecov": "cat coverage/lcov.info | codecov",
-    "prettier": "prettier --write",
-    "precommit": "lint-staged"
+    "precommit": "pretty-quick --staged"
   },
   "ngPackage": {
     "lib": {
@@ -30,12 +29,6 @@
         "textarea-caret": "getCaretCoordinates"
       }
     }
-  },
-  "lint-staged": {
-    "{demo,src,test}/**/*.ts": [
-      "npm run prettier",
-      "git add"
-    ]
   },
   "config": {
     "commitizen": {
@@ -104,11 +97,11 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.0",
     "keyboardevent-key-polyfill": "^1.1.0",
-    "lint-staged": "^7.1.0",
     "mocha": "^5.1.1",
     "ng-packagr": "^1.7.0",
     "offline-plugin": "^5.0.3",
     "prettier": "^1.12.1",
+    "pretty-quick": "^1.4.1",
     "rxjs": "^5.5.10",
     "sinon": "^5.0.7",
     "sinon-chai": "^3.0.0",
