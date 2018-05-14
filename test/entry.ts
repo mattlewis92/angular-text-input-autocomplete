@@ -10,7 +10,7 @@ import 'zone.js/dist/proxy';
 import 'zone.js/dist/mocha-patch';
 import 'rxjs/Rx';
 import { use } from 'chai';
-import * as sinonChai from 'sinon-chai';
+import sinonChai from 'sinon-chai';
 import { TestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,

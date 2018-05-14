@@ -11,7 +11,7 @@ import {
   Output,
   ViewContainerRef
 } from '@angular/core';
-import * as getCaretCoordinates from 'textarea-caret';
+import getCaretCoordinates from 'textarea-caret';
 import 'rxjs/add/operator/takeUntil';
 import { TextInputAutocompleteMenuComponent } from './text-input-autocomplete-menu.component';
 
@@ -155,8 +155,9 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         ),
         triggerCharacterPosition: this.elm.nativeElement.selectionStart
       };
-      const lineHeight = +getComputedStyle(this.elm.nativeElement)
-        .lineHeight!.replace(/px$/, '');
+      const lineHeight = +getComputedStyle(
+        this.elm.nativeElement
+      ).lineHeight!.replace(/px$/, '');
       const { top, left } = getCaretCoordinates(
         this.elm.nativeElement,
         this.elm.nativeElement.selectionStart

@@ -1,7 +1,7 @@
-import * as webpack from 'webpack';
-import * as path from 'path';
-import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import * as WebpackKarmaDieHardPlugin from '@mattlewis92/webpack-karma-die-hard';
+import webpack from 'webpack';
+import path from 'path';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import WebpackKarmaDieHardPlugin from '@mattlewis92/webpack-karma-die-hard';
 
 export default (config: any) => {
 
