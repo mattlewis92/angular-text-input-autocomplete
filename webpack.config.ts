@@ -7,7 +7,6 @@ import { AotPlugin } from '@ngtools/webpack';
 import OfflinePlugin from 'offline-plugin';
 
 export default (environment = 'development') => {
-
   const { ifProduction, ifDevelopment } = getIfUtils(environment);
 
   return {
@@ -17,22 +16,28 @@ export default (environment = 'development') => {
       filename: ifProduction('[name]-[chunkhash].js', '[name].js')
     },
     module: {
-      rules: removeEmpty([ifDevelopment({
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-        exclude: /node_modules/,
-        enforce: 'pre'
-      }), ifDevelopment({
-        test: /\.ts$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          transpileOnly: true
-        }
-      }, {
-        test: /\.ts$/,
-        loader: '@ngtools/webpack'
-      })])
+      rules: removeEmpty([
+        ifDevelopment({
+          test: /\.ts$/,
+          loader: 'tslint-loader',
+          exclude: /node_modules/,
+          enforce: 'pre'
+        }),
+        ifDevelopment(
+          {
+            test: /\.ts$/,
+            loader: 'ts-loader',
+            exclude: /node_modules/,
+            options: {
+              transpileOnly: true
+            }
+          },
+          {
+            test: /\.ts$/,
+            loader: '@ngtools/webpack'
+          }
+        )
+      ])
     },
     resolve: {
       extensions: ['.ts', '.js']
@@ -46,20 +51,26 @@ export default (environment = 'development') => {
     },
     plugins: removeEmpty([
       ifProduction(new webpack.optimize.ModuleConcatenationPlugin()),
-      ifProduction(new AotPlugin({
-        tsConfigPath: './tsconfig-demo.json'
-      })),
+      ifProduction(
+        new AotPlugin({
+          tsConfigPath: './tsconfig-demo.json'
+        })
+      ),
       ifDevelopment(new webpack.HotModuleReplacementPlugin()),
-      ifDevelopment(new ForkTsCheckerWebpackPlugin({
-        watch: ['./src', './demo'],
-        formatter: 'codeframe'
-      })),
+      ifDevelopment(
+        new ForkTsCheckerWebpackPlugin({
+          watch: ['./src', './demo'],
+          formatter: 'codeframe'
+        })
+      ),
       new webpack.DefinePlugin({
         ENV: JSON.stringify(environment)
       }),
-      ifProduction(new webpack.optimize.UglifyJsPlugin({
-        sourceMap: true
-      })),
+      ifProduction(
+        new webpack.optimize.UglifyJsPlugin({
+          sourceMap: true
+        })
+      ),
       new webpack.ContextReplacementPlugin(
         /angular(\\|\/)core(\\|\/)@angular/,
         path.join(__dirname, 'src')
