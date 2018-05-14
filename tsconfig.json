@@ -8,7 +8,9 @@
     "experimentalDecorators": true,
     "lib": ["es2015", "dom"],
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false
   },
   "include": [
     "src",

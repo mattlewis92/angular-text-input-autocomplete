@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/mattlewis92/angular-text-input-autocomplete/compare/v0.1.2...v0.2.0) (2018-05-14)
+
+
+### Features
+
+* add max height and scrollbar to menu ([11a32ad](https://github.com/mattlewis92/angular-text-input-autocomplete/commit/11a32ad))
+* upgrade to angular 6 ([8d8af83](https://github.com/mattlewis92/angular-text-input-autocomplete/commit/8d8af83))
+
+
+### BREAKING CHANGES
+
+* angular 6 or higher is now required to use this package
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/mattlewis92/angular-text-input-autocomplete/compare/v0.1.1...v0.1.2) (2018-05-05)
 

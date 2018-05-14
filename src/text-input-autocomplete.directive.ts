@@ -11,9 +11,10 @@ import {
   Output,
   ViewContainerRef
 } from '@angular/core';
-import * as getCaretCoordinates from 'textarea-caret';
-import 'rxjs/add/operator/takeUntil';
+import getCaretCoordinates from 'textarea-caret';
+import { takeUntil } from 'rxjs/operators';
 import { TextInputAutocompleteMenuComponent } from './text-input-autocomplete-menu.component';
+import { Subject } from 'rxjs';
 
 export interface ChoiceSelectedEvent {
   choice: any;
@@ -77,6 +78,8 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         lastCaretPosition?: number;
       }
     | undefined;
+
+  private menuHidden$ = new Subject();
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -155,8 +158,9 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         ),
         triggerCharacterPosition: this.elm.nativeElement.selectionStart
       };
-      const lineHeight = +getComputedStyle(this.elm.nativeElement)
-        .lineHeight!.replace(/px$/, '');
+      const lineHeight = +getComputedStyle(
+        this.elm.nativeElement
+      ).lineHeight!.replace(/px$/, '');
       const { top, left } = getCaretCoordinates(
         this.elm.nativeElement,
         this.elm.nativeElement.selectionStart
@@ -167,7 +171,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
       };
       this.menu.component.changeDetectorRef.detectChanges();
       this.menu.component.instance.selectChoice
-        .takeUntil(this.menuHidden)
+        .pipe(takeUntil(this.menuHidden$))
         .subscribe(choice => {
           const label = this.getChoiceLabel(choice);
           const textarea: HTMLTextAreaElement = this.elm.nativeElement;
@@ -199,6 +203,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   private hideMenu() {
     if (this.menu) {
       this.menu.component.destroy();
+      this.menuHidden$.next();
       this.menuHidden.emit();
       this.menu = undefined;
     }

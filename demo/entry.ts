@@ -23,8 +23,7 @@ import { DemoModule } from './demo.module';
 // required for older browsers
 keyboardEventKeyPolyfill();
 
-declare const ENV: string;
-if (ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   const { install } = require('offline-plugin/runtime'); // tslint:disable-line
   install();
   enableProdMode();

@@ -1,23 +1,18 @@
 {
   "name": "angular-text-input-autocomplete",
-  "version": "0.1.2",
-  "description": "A angular 4+ directive for adding autocomplete functionality to text input elements, built around composability",
-  "main": "./bundles/angular-text-input-autocomplete.umd.js",
-  "module": "./index.js",
-  "typings": "./index.d.ts",
+  "version": "0.2.0",
+  "description": "A angular 6+ directive for adding autocomplete functionality to text input elements, built around composability",
   "scripts": {
     "start": "concurrently --raw \"webpack-dev-server --open\" \"npm run test:watch\"",
     "build:demo": "webpack --env=production",
-    "build:umd": "webpack --config webpack.config.umd.ts",
-    "build:ngc": "ngc -p tsconfig-ngc.json",
-    "build:dist": "npm run build:umd && npm run build:ngc",
+    "build:dist": "ng-packagr -p package.json",
     "build:clean": "del-cli dist",
     "test": "karma start --single-run && npm run build:dist && npm run build:clean",
     "test:watch": "karma start --auto-watch",
     "commit": "git-cz",
     "compodoc": "compodoc -p tsconfig-compodoc.json -d docs --disableGraph --disableCoverage --disablePrivate --disableInternal --disableLifeCycleHooks --disableProtected",
     "gh-pages": "git checkout gh-pages && git merge master --no-edit --no-ff && del-cli *.js *.js.map && npm run build:demo && npm run compodoc && git add . && git commit -m \"chore: build demo and docs\" && git push && git checkout master",
-    "copyfiles": "copyfiles package.json LICENSE README.md CHANGELOG.md dist",
+    "copyfiles": "copyfiles CHANGELOG.md dist",
     "prerelease": "npm test",
     "release:git": "git add package.json && git commit -m \"chore: bump version number\" && standard-version --first-release && git push --follow-tags origin master",
     "release:npm": "npm run build:dist && npm run copyfiles && npm publish dist",
@@ -25,13 +20,18 @@
     "postrelease": "npm run build:clean && npm run gh-pages",
     "commitmsg": "commitlint -e",
     "codecov": "cat coverage/lcov.info | codecov",
-    "prettier": "prettier --write",
-    "precommit": "lint-staged"
+    "precommit": "pretty-quick --staged"
   },
-  "lint-staged": {
-    "{demo,src,test}/**/*.ts": [
-      "npm run prettier",
-      "git add"
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts",
+      "umdModuleIds": {
+        "textarea-caret": "getCaretCoordinates"
+      }
+    },
+    "whitelistedNonPeerDependencies": [
+      "tslib",
+      "textarea-caret"
     ]
   },
   "config": {
@@ -41,7 +41,7 @@
   },
   "commitlint": {
     "extends": [
-      "@commitlint/config-angular"
+      "@commitlint/config-conventional"
     ]
   },
   "repository": {
@@ -49,9 +49,10 @@
     "url": "git+https://github.com/mattlewis92/angular-text-input-autocomplete.git"
   },
   "keywords": [
-    "angular4",
+    "angular6",
     "angular2",
-    "angular"
+    "angular",
+    "autocomplete"
   ],
   "author": "Matt Lewis",
   "license": "MIT",
@@ -60,72 +61,72 @@
   },
   "homepage": "https://github.com/mattlewis92/angular-text-input-autocomplete#readme",
   "devDependencies": {
-    "@angular/common": "^4.4.6",
-    "@angular/compiler": "^4.4.6",
-    "@angular/compiler-cli": "^4.4.6",
-    "@angular/core": "^4.4.6",
-    "@angular/forms": "^4.4.6",
-    "@angular/language-service": "^4.4.6",
-    "@angular/platform-browser": "^4.4.6",
-    "@angular/platform-browser-dynamic": "^4.4.6",
-    "@commitlint/cli": "^4.3.0",
-    "@commitlint/config-angular": "^3.1.1",
-    "@commitlint/prompt": "^4.3.0",
-    "@compodoc/compodoc": "^1.0.5",
+    "@angular/common": "^6.0.1",
+    "@angular/compiler": "^6.0.1",
+    "@angular/compiler-cli": "^6.0.1",
+    "@angular/core": "^6.0.1",
+    "@angular/forms": "^6.0.1",
+    "@angular/language-service": "^6.0.1",
+    "@angular/platform-browser": "^6.0.1",
+    "@angular/platform-browser-dynamic": "^6.0.1",
+    "@commitlint/cli": "^6.2.0",
+    "@commitlint/config-conventional": "^6.1.3",
+    "@commitlint/prompt": "^6.1.3",
+    "@compodoc/compodoc": "^1.1.2",
     "@mattlewis92/webpack-karma-die-hard": "^1.0.4",
-    "@ngtools/webpack": "^1.9.3",
-    "@types/chai": "^4.1.0",
-    "@types/html-webpack-plugin": "^2.30.1",
-    "@types/mocha": "^2.2.46",
-    "@types/node": "^8.5.8",
-    "@types/sinon": "^2.3.7",
-    "@types/sinon-chai": "^2.7.26",
-    "@types/webpack": "^3.8.2",
+    "@ngtools/webpack": "^6.0.1",
+    "@types/chai": "^4.1.3",
+    "@types/html-webpack-plugin": "^2.30.3",
+    "@types/mocha": "^5.2.0",
+    "@types/node": "^10.0.8",
+    "@types/sinon": "^4.3.3",
+    "@types/sinon-chai": "^2.7.31",
+    "@types/webpack": "^4.1.6",
     "chai": "^4.0.0",
-    "codecov": "^2.3.1",
-    "codelyzer": "^3.2.2",
+    "codecov": "^3.0.2",
+    "codelyzer": "^4.3.0",
     "commitizen": "^2.8.1",
     "concurrently": "^3.5.1",
-    "copyfiles": "^1.2.0",
-    "core-js": "^2.5.3",
+    "copyfiles": "^2.0.0",
+    "core-js": "^2.5.6",
     "del-cli": "^1.0.0",
-    "fork-ts-checker-webpack-plugin": "^0.2.10",
-    "html-webpack-plugin": "^2.28.0",
+    "fork-ts-checker-webpack-plugin": "^0.4.1",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
-    "istanbul-instrumenter-loader": "^3.0.0",
-    "karma": "^1.4.1",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "karma": "^2.0.2",
     "karma-chrome-launcher": "^2.1.1",
-    "karma-coverage-istanbul-reporter": "^1.3.3",
+    "karma-coverage-istanbul-reporter": "^1.4.2",
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.5",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^2.0.9",
+    "karma-webpack": "^3.0.0",
     "keyboardevent-key-polyfill": "^1.1.0",
-    "lint-staged": "^4.3.0",
-    "mocha": "^4.1.0",
-    "offline-plugin": "^4.9.0",
-    "prettier": "^1.9.2",
-    "rxjs": "^5.5.6",
-    "sinon": "^4.1.4",
-    "sinon-chai": "^2.8.0",
+    "mocha": "^5.1.1",
+    "ng-packagr": "^3.0.0-rc.5",
+    "offline-plugin": "^5.0.3",
+    "prettier": "^1.12.1",
+    "pretty-quick": "^1.4.1",
+    "rxjs": "^6.1.0",
+    "sinon": "^5.0.7",
+    "sinon-chai": "^3.0.0",
     "standard-version": "^4.3.0",
-    "ts-loader": "^2.1.0",
-    "ts-node": "^3.0.0",
-    "tslint": "^5.8.0",
-    "tslint-config-mwl": "^0.2.1",
-    "tslint-loader": "^3.5.3",
-    "typescript": "~2.5.3",
-    "webpack": "^3.10.0",
-    "webpack-angular-externals": "^1.0.0",
+    "ts-loader": "^4.3.0",
+    "ts-node": "^6.0.3",
+    "tslint": "^5.10.0",
+    "tslint-config-mwl": "^0.4.1",
+    "tslint-loader": "^3.6.0",
+    "typescript": "~2.7.2",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
     "webpack-config-utils": "^2.3.0",
-    "webpack-dev-server": "^2.10.1",
-    "webpack-rxjs-externals": "^1.1.0",
-    "zone.js": "^0.8.19"
+    "webpack-dev-server": "^3.1.4",
+    "zone.js": "^0.8.26"
   },
   "peerDependencies": {
-    "@angular/core": ">=4.0.0 <7.0.0"
+    "@angular/core": ">=6.0.0 <7.0.0"
   },
   "dependencies": {
-    "textarea-caret": "^3.0.2"
+    "textarea-caret": "^3.1.0"
   }
 }

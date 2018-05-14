@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 @Component({
   template: `
@@ -23,6 +23,8 @@ import { Subject } from 'rxjs/Subject';
     `
     .dropdown-menu {
       display: block;
+      max-height: 200px;
+      overflow-y: auto;
     }
   `
   ]
