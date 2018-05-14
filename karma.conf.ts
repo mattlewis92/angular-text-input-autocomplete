@@ -22,6 +22,7 @@ export default (config: any) => {
     },
 
     webpack: {
+      mode: 'development',
       resolve: {
         extensions: ['.ts', '.js']
       },
@@ -50,6 +51,12 @@ export default (config: any) => {
             exclude: /(node_modules|\.spec\.ts$)/,
             loader: 'istanbul-instrumenter-loader',
             enforce: 'post'
+          },
+          {
+            test: /node_modules\/@angular\/core\/.+\/core\.es5\.js$/,
+            parser: {
+              system: true // disable `System.import() is deprecated and will be removed soon. Use import() instead.` warning
+            }
           }
         ]
       },
@@ -64,17 +71,17 @@ export default (config: any) => {
           path.join(__dirname, 'src')
         ),
         ...(config.singleRun
-          ? [
-              new WebpackKarmaDieHardPlugin(),
-              new webpack.NoEmitOnErrorsPlugin()
-            ]
+          ? [new WebpackKarmaDieHardPlugin()]
           : [
               new ForkTsCheckerWebpackPlugin({
                 watch: ['./src', './test'],
                 formatter: 'codeframe'
               })
             ])
-      ]
+      ],
+      optimization: {
+        noEmitOnErrors: config.singleRun
+      }
     },
 
     mochaReporter: {
