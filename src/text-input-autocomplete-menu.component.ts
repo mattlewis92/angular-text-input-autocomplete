@@ -1,14 +1,15 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
   template: `
     <ul 
       *ngIf="choices?.length > 0"
+      #dropdownMenu
       class="dropdown-menu"
       [style.top.px]="position?.top"
       [style.left.px]="position?.left">
-      <li 
+      <li
         *ngFor="let choice of choices"
         [class.active]="activeChoice === choice">
         <a
@@ -21,15 +22,16 @@ import { Subject } from 'rxjs';
   `,
   styles: [
     `
-    .dropdown-menu {
-      display: block;
-      max-height: 200px;
-      overflow-y: auto;
-    }
-  `
+      .dropdown-menu {
+        display: block;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+    `
   ]
 })
 export class TextInputAutocompleteMenuComponent {
+  @ViewChild('dropdownMenu') dropdownMenuElement: ElementRef<HTMLUListElement>;
   position: { top: number; left: number };
   selectChoice = new Subject();
   activeChoice: any;
@@ -54,7 +56,7 @@ export class TextInputAutocompleteMenuComponent {
     event.preventDefault();
     const index = this.choices.indexOf(this.activeChoice);
     if (this.choices[index + 1]) {
-      this.activeChoice = this._choices[index + 1];
+      this.scrollToChoice(index + 1);
     }
   }
 
@@ -63,7 +65,7 @@ export class TextInputAutocompleteMenuComponent {
     event.preventDefault();
     const index = this.choices.indexOf(this.activeChoice);
     if (this.choices[index - 1]) {
-      this.activeChoice = this._choices[index - 1];
+      this.scrollToChoice(index - 1);
     }
   }
 
@@ -72,6 +74,20 @@ export class TextInputAutocompleteMenuComponent {
     if (this.choices.indexOf(this.activeChoice) > -1) {
       event.preventDefault();
       this.selectChoice.next(this.activeChoice);
+    }
+  }
+
+  private scrollToChoice(index: number) {
+    this.activeChoice = this._choices[index];
+    if (this.dropdownMenuElement) {
+      const ulPosition = this.dropdownMenuElement.nativeElement.getBoundingClientRect();
+      const li = this.dropdownMenuElement.nativeElement.children[index];
+      const liPosition = li.getBoundingClientRect();
+      if (liPosition.top < ulPosition.top) {
+        li.scrollIntoView();
+      } else if (liPosition.bottom > ulPosition.bottom) {
+        li.scrollIntoView(false);
+      }
     }
   }
 }
