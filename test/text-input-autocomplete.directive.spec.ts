@@ -109,15 +109,15 @@ describe('text-input-autocomplete directive', () => {
     return fixture.debugElement.query(By.directive(menuComponent));
   }
 
-  function arrowDown() {
-    getMenu().componentInstance.onArrowDown({
+  function arrowDown(menuComponent = TextInputAutocompleteMenuComponent) {
+    getMenu(menuComponent).componentInstance.onArrowDown({
       preventDefault: sinon.spy()
     });
     fixture.detectChanges();
   }
 
-  function arrowUp() {
-    getMenu().componentInstance.onArrowUp({
+  function arrowUp(menuComponent = TextInputAutocompleteMenuComponent) {
+    getMenu(menuComponent).componentInstance.onArrowUp({
       preventDefault: sinon.spy()
     });
     fixture.detectChanges();
@@ -361,6 +361,17 @@ describe('text-input-autocomplete directive', () => {
       expect(getMenu().componentInstance.choiceLoading).to.be.true;
       flush();
       expect(getMenu().componentInstance.choiceLoading).to.be.false;
+    })
+  );
+
+  it(
+    'should not throw when using a custom template and trying to scroll',
+    fakeAsync(() => {
+      component.menuComponent = CustomMenuComponent;
+      fixture.detectChanges();
+      typeInTextarea('text @def');
+      flush();
+      expect(() => arrowDown(CustomMenuComponent)).not.to.throw();
     })
   );
 });
