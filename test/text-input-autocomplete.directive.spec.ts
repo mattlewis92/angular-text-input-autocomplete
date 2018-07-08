@@ -14,7 +14,7 @@ import { Component, DebugElement, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-/* tslint:disable max-classes-per-file */
+/* tslint:disable max-classes-per-file enforce-component-selector */
 
 @Component({
   template: `
