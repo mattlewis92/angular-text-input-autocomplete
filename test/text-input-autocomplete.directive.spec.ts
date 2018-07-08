@@ -374,4 +374,14 @@ describe('text-input-autocomplete directive', () => {
       expect(() => arrowDown(CustomMenuComponent)).not.to.throw();
     })
   );
+
+  it(
+    'should add a component selector to the menu for global styling',
+    fakeAsync(() => {
+      typeInTextarea('test @');
+      expect(getMenu().nativeElement.tagName.toLowerCase()).to.equal(
+        'mwl-text-input-autocomplete-menu'
+      );
+    })
+  );
 });

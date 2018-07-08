@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
+  selector: 'mwl-text-input-autocomplete-menu',
   template: `
     <ul 
       *ngIf="choices?.length > 0"
