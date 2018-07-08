@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
+  selector: 'mwl-text-input-autocomplete-menu',
   template: `
     <ul 
       *ngIf="choices?.length > 0"
@@ -10,7 +11,7 @@ import { Subject } from 'rxjs';
       [style.top.px]="position?.top"
       [style.left.px]="position?.left">
       <li
-        *ngFor="let choice of choices"
+        *ngFor="let choice of choices; trackBy:trackById"
         [class.active]="activeChoice === choice">
         <a
           href="javascript:;"
@@ -39,6 +40,8 @@ export class TextInputAutocompleteMenuComponent {
   choiceLoadError: any;
   choiceLoading = false;
   private _choices: any[];
+  trackById = (index: number, choice: any) =>
+    typeof choice.id !== 'undefined' ? choice.id : choice;
 
   set choices(choices: any[]) {
     this._choices = choices;

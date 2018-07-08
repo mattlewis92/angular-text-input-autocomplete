@@ -14,7 +14,7 @@ import { Component, DebugElement, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-/* tslint:disable max-classes-per-file */
+/* tslint:disable max-classes-per-file enforce-component-selector */
 
 @Component({
   template: `
@@ -372,6 +372,16 @@ describe('text-input-autocomplete directive', () => {
       typeInTextarea('text @def');
       flush();
       expect(() => arrowDown(CustomMenuComponent)).not.to.throw();
+    })
+  );
+
+  it(
+    'should add a component selector to the menu for global styling',
+    fakeAsync(() => {
+      typeInTextarea('test @');
+      expect(getMenu().nativeElement.tagName.toLowerCase()).to.equal(
+        'mwl-text-input-autocomplete-menu'
+      );
     })
   );
 });
