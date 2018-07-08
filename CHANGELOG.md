@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/mattlewis92/angular-text-input-autocomplete/compare/v0.2.1...v0.3.0) (2018-07-08)
+
+
+### Features
+
+* add a component selector to the dropdown menu ([c9ff811](https://github.com/mattlewis92/angular-text-input-autocomplete/commit/c9ff811)), closes [#8](https://github.com/mattlewis92/angular-text-input-autocomplete/issues/8)
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/mattlewis92/angular-text-input-autocomplete/compare/v0.2.0...v0.2.1) (2018-06-16)
 
