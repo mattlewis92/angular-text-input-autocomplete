@@ -357,6 +357,10 @@
 
 
 
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mwl-text-input-autocomplete-menu</code></td>
+            </tr>
 
 
             <tr>
@@ -379,7 +383,7 @@
   [style.top.px]&#x3D;&quot;position?.top&quot;
   [style.left.px]&#x3D;&quot;position?.left&quot;&gt;
   &lt;li
-    *ngFor&#x3D;&quot;let choice of choices&quot;
+    *ngFor&#x3D;&quot;let choice of choices; trackBy:trackById&quot;
     [class.active]&#x3D;&quot;activeChoice &#x3D;&#x3D;&#x3D; choice&quot;&gt;
     &lt;a
       href&#x3D;&quot;javascript:;&quot;
@@ -429,6 +433,9 @@
                             </li>
                             <li>
                                 <a href="#selectChoice">selectChoice</a>
+                            </li>
+                            <li>
+                                <a href="#trackById">trackById</a>
                             </li>
                         </ul>
                     </td>
@@ -495,7 +502,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:58</a></div>
                             </td>
                         </tr>
 
@@ -529,7 +536,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:67</a></div>
                             </td>
                         </tr>
 
@@ -563,7 +570,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:73</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:76</a></div>
                             </td>
                         </tr>
 
@@ -605,7 +612,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -639,7 +646,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -672,7 +679,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -711,7 +718,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -745,7 +752,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -779,7 +786,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -812,7 +819,41 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="trackById"></a>
+                        <span class="name">
+                            <b>
+                            trackById
+                            </b>
+                            <a href="#trackById"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>trackById:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(index: number, choice: any) &#x3D;&gt;
+    typeof choice.id !&#x3D;&#x3D; &#x27;undefined&#x27; ? choice.id : choice</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -841,7 +882,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:53</a></div>
                                 </td>
                             </tr>
 
@@ -852,7 +893,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/text-input-autocomplete-menu.component.ts:46</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -903,6 +944,7 @@
 import { Subject } from &#x27;rxjs&#x27;;
 
 @Component({
+  selector: &#x27;mwl-text-input-autocomplete-menu&#x27;,
   template: &#x60;
     &lt;ul 
       *ngIf&#x3D;&quot;choices?.length &gt; 0&quot;
@@ -911,7 +953,7 @@ import { Subject } from &#x27;rxjs&#x27;;
       [style.top.px]&#x3D;&quot;position?.top&quot;
       [style.left.px]&#x3D;&quot;position?.left&quot;&gt;
       &lt;li
-        *ngFor&#x3D;&quot;let choice of choices&quot;
+        *ngFor&#x3D;&quot;let choice of choices; trackBy:trackById&quot;
         [class.active]&#x3D;&quot;activeChoice &#x3D;&#x3D;&#x3D; choice&quot;&gt;
         &lt;a
           href&#x3D;&quot;javascript:;&quot;
@@ -940,6 +982,8 @@ export class TextInputAutocompleteMenuComponent {
   choiceLoadError: any;
   choiceLoading &#x3D; false;
   private _choices: any[];
+  trackById &#x3D; (index: number, choice: any) &#x3D;&gt;
+    typeof choice.id !&#x3D;&#x3D; &#x27;undefined&#x27; ? choice.id : choice;
 
   set choices(choices: any[]) {
     this._choices &#x3D; choices;
@@ -1021,8 +1065,8 @@ export class TextInputAutocompleteMenuComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ul  *ngIf="choices?.length > 0"  #dropdownMenu  class="dropdown-menu"  [style.top.px]="position?.top"  [style.left.px]="position?.left">  <li    *ngFor="let choice of choices"    [class.active]="activeChoice === choice">    <a      href="javascript:;"      (click)="selectChoice.next(choice)">      {{ choice }}    </a>  </li></ul></div>'
-    var COMPONENTS = [{'name': 'TextInputAutocompleteContainerComponent', 'selector': 'mwl-text-input-autocomplete-container'},{'name': 'TextInputAutocompleteMenuComponent', 'selector': ''}];
+        var COMPONENT_TEMPLATE = '<div><ul  *ngIf="choices?.length > 0"  #dropdownMenu  class="dropdown-menu"  [style.top.px]="position?.top"  [style.left.px]="position?.left">  <li    *ngFor="let choice of choices; trackBy:trackById"    [class.active]="activeChoice === choice">    <a      href="javascript:;"      (click)="selectChoice.next(choice)">      {{ choice }}    </a>  </li></ul></div>'
+    var COMPONENTS = [{'name': 'TextInputAutocompleteContainerComponent', 'selector': 'mwl-text-input-autocomplete-container'},{'name': 'TextInputAutocompleteMenuComponent', 'selector': 'mwl-text-input-autocomplete-menu'}];
     var DIRECTIVES = [{'name': 'TextInputAutocompleteDirective', 'selector': 'textarea[mwlTextInputAutocomplete],input[type&#x3D;&quot;text&quot;][mwlTextInputAutocomplete]'}];
     var ACTUAL_COMPONENT = {'name': 'TextInputAutocompleteMenuComponent'};
 </script>
