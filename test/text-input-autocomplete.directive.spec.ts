@@ -27,6 +27,7 @@ import { By } from '@angular/platform-browser';
         [triggerCharacter]="triggerCharacter"
         [searchRegexp]="searchRegexp"
         [menuComponent]="menuComponent"
+        [closeMenuOnBlur]="closeMenuOnBlur"
         (menuShown)="menuShown($event)"
         (menuHidden)="menuHidden($event)"
         (choiceSelected)="choiceSelected($event)">
@@ -44,6 +45,7 @@ class TestComponent {
   menuShown = sinon.spy();
   menuHidden = sinon.spy();
   choiceSelected = sinon.spy();
+  closeMenuOnBlur = false;
 }
 
 @Component({
@@ -196,6 +198,26 @@ describe('text-input-autocomplete directive', () => {
       expect(getMenu()).not.to.be.ok;
     })
   );
+
+  it('should hide menu on blur', fakeAsync(() => {
+    component.closeMenuOnBlur = true;
+    fixture.detectChanges();
+    typeInTextarea('text @b');
+    flush();
+    textarea.triggerEventHandler('blur', {});
+    fixture.detectChanges();
+    expect(getMenu()).not.to.be.ok;
+  }));
+
+  it('should not hide menu on blur', fakeAsync(() => {
+    component.closeMenuOnBlur = false;
+    fixture.detectChanges();
+    typeInTextarea('text @b');
+    flush();
+    textarea.triggerEventHandler('blur', {});
+    fixture.detectChanges();
+    expect(getMenu()).to.be.ok;
+  }));
 
   it(
     'should use the keyboard shortcuts to navigate the menu',
