@@ -40,6 +40,11 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   @Input() searchRegexp = /^\w*$/;
 
   /**
+   * Whether to close the menu when the host textarea loses focus
+   */
+  @Input() closeMenuOnBlur = false;
+
+  /**
    * The menu component to show with available options.
    * You can extend the built in `TextInputAutocompleteMenuComponent` component to use a custom template
    */
@@ -142,6 +147,10 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   onBlur() {
     if (this.menu) {
       this.menu.lastCaretPosition = this.elm.nativeElement.selectionStart;
+
+      if (this.closeMenuOnBlur === true) {
+        this.hideMenu();
+      }
     }
   }
 
