@@ -15,6 +15,8 @@ import getCaretCoordinates from 'textarea-caret';
 import { takeUntil } from 'rxjs/operators';
 import { TextInputAutocompleteMenuComponent } from './text-input-autocomplete-menu.component';
 import { Subject } from 'rxjs';
+// @ts-ignore
+import toPX from 'to-px';
 
 export interface ChoiceSelectedEvent {
   choice: any;
@@ -156,9 +158,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
 
   private showMenu() {
     if (!this.menu) {
-      const menuFactory = this.componentFactoryResolver.resolveComponentFactory<
-        TextInputAutocompleteMenuComponent
-      >(this.menuComponent);
+      const menuFactory = this.componentFactoryResolver.resolveComponentFactory<TextInputAutocompleteMenuComponent>(this.menuComponent);
       this.menu = {
         component: this.viewContainerRef.createComponent(
           menuFactory,
@@ -167,9 +167,8 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         ),
         triggerCharacterPosition: this.elm.nativeElement.selectionStart
       };
-      const lineHeight = +getComputedStyle(
-        this.elm.nativeElement
-      ).lineHeight!.replace(/px$/, '');
+
+      const lineHeight = this.getLineHeight(this.elm.nativeElement);
       const { top, left } = getCaretCoordinates(
         this.elm.nativeElement,
         this.elm.nativeElement.selectionStart
@@ -207,6 +206,24 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         });
       this.menuShown.emit();
     }
+  }
+
+  getLineHeight(elm: HTMLElement): number {
+    const lineHeightStr = getComputedStyle(elm).lineHeight || '';
+    const fontSizeStr = getComputedStyle(elm).fontSize || '';
+    const fontSize = +toPX(fontSizeStr);
+    const normal = 1.2;
+    const lineHeightNum = parseFloat(lineHeightStr);
+
+    if (lineHeightStr === lineHeightNum + '') {
+        return fontSize * lineHeightNum;
+    }
+
+    if (lineHeightStr.toLowerCase() === 'normal') {
+      return fontSize * normal;
+    }
+
+    return toPX(lineHeightStr);
   }
 
   private hideMenu() {

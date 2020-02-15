@@ -219,6 +219,30 @@ describe('text-input-autocomplete directive', () => {
     expect(getMenu()).to.be.ok;
   }));
 
+  it('should show menu for unitless line-height', fakeAsync(() => {
+    (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = "1.5";
+    fixture.detectChanges();
+    typeInTextarea('text @b');
+    flush();
+    expect(getMenu()).to.be.ok;
+  }));
+
+  it('should show menu for normal line-height', fakeAsync(() => {
+    (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = "normal";
+    fixture.detectChanges();
+    typeInTextarea('text @b');
+    flush();
+    expect(getMenu()).to.be.ok;
+  }));
+
+  it('should show menu for line-height with unit', fakeAsync(() => {
+    (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = "16em";
+    fixture.detectChanges();
+    typeInTextarea('text @b');
+    flush();
+    expect(getMenu()).to.be.ok;
+  }));
+
   it(
     'should use the keyboard shortcuts to navigate the menu',
     fakeAsync(() => {
