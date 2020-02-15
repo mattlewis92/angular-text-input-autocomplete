@@ -199,49 +199,65 @@ describe('text-input-autocomplete directive', () => {
     })
   );
 
-  it('should hide menu on blur', fakeAsync(() => {
-    component.closeMenuOnBlur = true;
-    fixture.detectChanges();
-    typeInTextarea('text @b');
-    flush();
-    textarea.triggerEventHandler('blur', {});
-    fixture.detectChanges();
-    expect(getMenu()).not.to.be.ok;
-  }));
+  it(
+    'should hide menu on blur',
+    fakeAsync(() => {
+      component.closeMenuOnBlur = true;
+      fixture.detectChanges();
+      typeInTextarea('text @b');
+      flush();
+      textarea.triggerEventHandler('blur', {});
+      fixture.detectChanges();
+      expect(getMenu()).not.to.be.ok;
+    })
+  );
 
-  it('should not hide menu on blur', fakeAsync(() => {
-    component.closeMenuOnBlur = false;
-    fixture.detectChanges();
-    typeInTextarea('text @b');
-    flush();
-    textarea.triggerEventHandler('blur', {});
-    fixture.detectChanges();
-    expect(getMenu()).to.be.ok;
-  }));
+  it(
+    'should not hide menu on blur',
+    fakeAsync(() => {
+      component.closeMenuOnBlur = false;
+      fixture.detectChanges();
+      typeInTextarea('text @b');
+      flush();
+      textarea.triggerEventHandler('blur', {});
+      fixture.detectChanges();
+      expect(getMenu()).to.be.ok;
+    })
+  );
 
-  it('should show menu for unitless line-height', fakeAsync(() => {
-    (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = "1.5";
-    fixture.detectChanges();
-    typeInTextarea('text @b');
-    flush();
-    expect(getMenu()).to.be.ok;
-  }));
+  it(
+    'should show menu for unitless line-height',
+    fakeAsync(() => {
+      (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = '1.5';
+      fixture.detectChanges();
+      typeInTextarea('text @b');
+      flush();
+      expect(getMenu()).to.be.ok;
+    })
+  );
 
-  it('should show menu for normal line-height', fakeAsync(() => {
-    (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = "normal";
-    fixture.detectChanges();
-    typeInTextarea('text @b');
-    flush();
-    expect(getMenu()).to.be.ok;
-  }));
+  it(
+    'should show menu for normal line-height',
+    fakeAsync(() => {
+      (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight =
+        'normal';
+      fixture.detectChanges();
+      typeInTextarea('text @b');
+      flush();
+      expect(getMenu()).to.be.ok;
+    })
+  );
 
-  it('should show menu for line-height with unit', fakeAsync(() => {
-    (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = "16em";
-    fixture.detectChanges();
-    typeInTextarea('text @b');
-    flush();
-    expect(getMenu()).to.be.ok;
-  }));
+  it(
+    'should show menu for line-height with unit',
+    fakeAsync(() => {
+      (textarea.nativeElement as HTMLTextAreaElement).style.lineHeight = '16em';
+      fixture.detectChanges();
+      typeInTextarea('text @b');
+      flush();
+      expect(getMenu()).to.be.ok;
+    })
+  );
 
   it(
     'should use the keyboard shortcuts to navigate the menu',

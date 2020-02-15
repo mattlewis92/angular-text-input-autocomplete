@@ -158,7 +158,9 @@ export class TextInputAutocompleteDirective implements OnDestroy {
 
   private showMenu() {
     if (!this.menu) {
-      const menuFactory = this.componentFactoryResolver.resolveComponentFactory<TextInputAutocompleteMenuComponent>(this.menuComponent);
+      const menuFactory = this.componentFactoryResolver.resolveComponentFactory<
+        TextInputAutocompleteMenuComponent
+      >(this.menuComponent);
       this.menu = {
         component: this.viewContainerRef.createComponent(
           menuFactory,
@@ -216,7 +218,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
     const lineHeightNum = parseFloat(lineHeightStr);
 
     if (lineHeightStr === lineHeightNum + '') {
-        return fontSize * lineHeightNum;
+      return fontSize * lineHeightNum;
     }
 
     if (lineHeightStr.toLowerCase() === 'normal') {
