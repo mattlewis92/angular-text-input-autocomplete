@@ -453,6 +453,8 @@ import getCaretCoordinates from &#x27;textarea-caret&#x27;;
 import { takeUntil } from &#x27;rxjs/operators&#x27;;
 import { TextInputAutocompleteMenuComponent } from &#x27;./text-input-autocomplete-menu.component&#x27;;
 import { Subject } from &#x27;rxjs&#x27;;
+// @ts-ignore
+import toPX from &#x27;to-px&#x27;;
 
 export interface ChoiceSelectedEvent {
   choice: any;
@@ -605,9 +607,8 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         ),
         triggerCharacterPosition: this.elm.nativeElement.selectionStart
       };
-      const lineHeight &#x3D; +getComputedStyle(
-        this.elm.nativeElement
-      ).lineHeight!.replace(/px$/, &#x27;&#x27;);
+
+      const lineHeight &#x3D; this.getLineHeight(this.elm.nativeElement);
       const { top, left } &#x3D; getCaretCoordinates(
         this.elm.nativeElement,
         this.elm.nativeElement.selectionStart
@@ -645,6 +646,24 @@ export class TextInputAutocompleteDirective implements OnDestroy {
         });
       this.menuShown.emit();
     }
+  }
+
+  getLineHeight(elm: HTMLElement): number {
+    const lineHeightStr &#x3D; getComputedStyle(elm).lineHeight || &#x27;&#x27;;
+    const fontSizeStr &#x3D; getComputedStyle(elm).fontSize || &#x27;&#x27;;
+    const fontSize &#x3D; +toPX(fontSizeStr);
+    const normal &#x3D; 1.2;
+    const lineHeightNum &#x3D; parseFloat(lineHeightStr);
+
+    if (lineHeightStr &#x3D;&#x3D;&#x3D; lineHeightNum + &#x27;&#x27;) {
+      return fontSize * lineHeightNum;
+    }
+
+    if (lineHeightStr.toLowerCase() &#x3D;&#x3D;&#x3D; &#x27;normal&#x27;) {
+      return fontSize * normal;
+    }
+
+    return toPX(lineHeightStr);
   }
 
   private hideMenu() {
