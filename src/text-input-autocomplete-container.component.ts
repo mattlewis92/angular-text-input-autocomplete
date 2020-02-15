@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
   selector: 'mwl-text-input-autocomplete-container',
   styles: [
     `
-    :host {
-      position: relative;
-      display: block;
-    }
-  `
+      :host {
+        position: relative;
+        display: block;
+      }
+    `
   ],
   template: '<ng-content></ng-content>'
 })

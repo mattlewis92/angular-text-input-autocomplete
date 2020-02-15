@@ -82,13 +82,16 @@ export class TextInputAutocompleteMenuComponent {
 
   private scrollToChoice(index: number) {
     this.activeChoice = this._choices[index];
-    
+
     if (this.dropdownMenuElement) {
       const ulPosition = this.dropdownMenuElement.nativeElement.getBoundingClientRect();
       const li = this.dropdownMenuElement.nativeElement.children[index];
       const liPosition = li.getBoundingClientRect();
-      
-      if (liPosition.top < ulPosition.top || liPosition.bottom > ulPosition.bottom) {
+
+      if (
+        liPosition.top < ulPosition.top ||
+        liPosition.bottom > ulPosition.bottom
+      ) {
         li.scrollIntoView({
           behavior: 'smooth',
           block: 'nearest'
