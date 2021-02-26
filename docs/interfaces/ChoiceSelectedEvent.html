@@ -475,6 +475,11 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   @Input() triggerCharacter &#x3D; &#x27;@&#x27;;
 
   /**
+   * An optional keyboard shortcut that will trigger the menu to appear
+   */
+  @Input() keyboardShortcut: (event: KeyboardEvent) &#x3D;&gt; boolean;
+
+  /**
    * The regular expression that will match the search text after the trigger character
    */
   @Input() searchRegexp &#x3D; /^\w*$/;
@@ -526,6 +531,8 @@ export class TextInputAutocompleteDirective implements OnDestroy {
 
   private menuHidden$ &#x3D; new Subject();
 
+  private usingShortcut &#x3D; false;
+
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private viewContainerRef: ViewContainerRef,
@@ -536,24 +543,42 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   @HostListener(&#x27;keypress&#x27;, [&#x27;$event.key&#x27;])
   onKeypress(key: string) {
     if (key &#x3D;&#x3D;&#x3D; this.triggerCharacter) {
+      this.usingShortcut &#x3D; false;
       this.showMenu();
+    }
+  }
+
+  @HostListener(&#x27;keydown&#x27;, [&#x27;$event&#x27;])
+  onKeyDown(event: KeyboardEvent) {
+    if (this.keyboardShortcut &amp;&amp; this.keyboardShortcut(event)) {
+      this.usingShortcut &#x3D; true;
+      this.showMenu();
+      this.onChange(&#x27;&#x27;);
     }
   }
 
   @HostListener(&#x27;input&#x27;, [&#x27;$event.target.value&#x27;])
   onChange(value: string) {
     if (this.menu) {
-      if (value[this.menu.triggerCharacterPosition] !&#x3D;&#x3D; this.triggerCharacter) {
+      if (
+        value[this.menu.triggerCharacterPosition] !&#x3D;&#x3D; this.triggerCharacter &amp;&amp;
+        !this.usingShortcut
+      ) {
         this.hideMenu();
       } else {
         const cursor &#x3D; this.elm.nativeElement.selectionStart;
         if (cursor &lt; this.menu.triggerCharacterPosition) {
           this.hideMenu();
         } else {
+          if (this.usingShortcut &amp;&amp; !this.menu) {
+            value &#x3D; this.triggerCharacter;
+          }
+          const offset &#x3D; this.usingShortcut ? 0 : 1;
           const searchText &#x3D; value.slice(
-            this.menu.triggerCharacterPosition + 1,
+            this.menu.triggerCharacterPosition + offset,
             cursor
           );
+
           if (!searchText.match(this.searchRegexp)) {
             this.hideMenu();
           } else {

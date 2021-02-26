@@ -332,8 +332,8 @@
 <p>A angular 6+ directive for adding autocomplete functionality to text input elements, built around composability</p>
 <h2 id="installation">Installation</h2>
 <p>Install through npm:</p>
-<div><pre class="line-numbers"><code class="language-none">npm install --save angular-text-input-autocomplete</code></pre></div><p>For older browsers you will need the <code>keyboardevent-key-polyfill</code> polyfill:</p>
-<div><pre class="line-numbers"><code class="language-none">npm install --save keyboardevent-key-polyfill</code></pre></div><p>Then include in your apps module:</p>
+<div><pre class="line-numbers"><code class="language-none">npm install angular-text-input-autocomplete</code></pre></div><p>For older browsers you will need the <code>keyboardevent-key-polyfill</code> polyfill:</p>
+<div><pre class="line-numbers"><code class="language-none">npm install keyboardevent-key-polyfill</code></pre></div><p>Then include in your apps module:</p>
 <div><pre class="line-numbers"><code class="language-typescript">import { polyfill as keyboardEventKeyPolyfill } from &#39;keyboardevent-key-polyfill&#39;;
 import { NgModule } from &#39;&#64;angular/core&#39;;
 import { TextInputAutocompleteModule } from &#39;angular-text-input-autocomplete&#39;;
@@ -375,11 +375,54 @@ export class DemoComponent {
     return `&#64;${choice} `;
   }
 }</code></pre></div><p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular-text-input-autocomplete/blob/master/demo/demo.component.ts">demo source</a>.</p>
-<h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>
-<div><pre class="line-numbers"><code class="language-none">&lt;script src=&quot;node_modules/angular-text-input-autocomplete/bundles/angular-text-input-autocomplete.umd.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    // everything is exported angularTextInputAutocomplete namespace
-&lt;/script&gt;</code></pre></div><h2 id="documentation">Documentation</h2>
+<h3 id="customising-the-menu-component-ui">Customising the menu component UI</h3>
+<p>By default the component works out of the box with bootstrap, but if you&#39;re using a different UI framework then you can customise the menu component that gets displayed.</p>
+<ol>
+<li>Create a custom menu component and add it to your components NgModule <code>declarations</code> (If you&#39;re not using ivy then you will need to add it to <code>entryComponents</code> as well)</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;
+import { TextInputAutocompleteMenuComponent } from &#39;angular-text-input-autocomplete&#39;;
+
+&#64;Component({
+  template: `
+    I&#39;m a custom menu template!
+    &lt;ul 
+      *ngIf=&quot;choices?.length &gt; 0&quot;
+      #dropdownMenu
+      class=&quot;dropdown-menu&quot;
+      [style.top.px]=&quot;position?.top&quot;
+      [style.left.px]=&quot;position?.left&quot;&gt;
+      &lt;li
+        *ngFor=&quot;let choice of choices; trackBy:trackById&quot;
+        [class.active]=&quot;activeChoice === choice&quot;&gt;
+        &lt;a
+          href=&quot;javascript:;&quot;
+          (click)=&quot;selectChoice.next(choice)&quot;&gt;
+          {{ choice }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  `
+})
+class CustomMenuComponent extends TextInputAutocompleteMenuComponent {}</code></pre></div><ol start="2">
+<li>Pass the component to the <code>menuComponent</code> input of the <code>mwlTextInputAutocomplete</code> directive</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;
+
+&#64;Component({
+  selector: &#39;mwl-demo-app&#39;,
+  template: `
+    &lt;mwl-text-input-autocomplete-container&gt;
+      &lt;textarea
+        mwlTextInputAutocomplete
+        [menuComponent]=&quot;menuComponent&quot;&gt;
+      &lt;/textarea&gt;
+    &lt;/mwl-text-input-autocomplete-container&gt;
+  `
+})
+export class DemoComponent {
+  menuComponent = CustomMenuComponent;
+}</code></pre></div><h2 id="documentation">Documentation</h2>
 <p>All documentation is auto-generated from the source via <a href="https://compodoc.github.io/compodoc/">compodoc</a> and can be viewed here:
 <a href="https://mattlewis92.github.io/angular-text-input-autocomplete/docs/">https://mattlewis92.github.io/angular-text-input-autocomplete/docs/</a></p>
 <h2 id="related">Related</h2>
