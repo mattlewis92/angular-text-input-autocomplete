@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/mattlewis92/angular-text-input-autocomplete/compare/v0.4.1...v0.5.0) (2021-02-26)
+
+
+### Features
+
+* allow opening the menu with a keyboard shortcut ([9c785d2](https://github.com/mattlewis92/angular-text-input-autocomplete/commit/9c785d2))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/mattlewis92/angular-text-input-autocomplete/compare/v0.4.0...v0.4.1) (2020-02-15)
 
