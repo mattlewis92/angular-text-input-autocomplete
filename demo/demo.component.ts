@@ -34,6 +34,7 @@ const names = [
         rows="5"
         [(ngModel)]="formControlValue"
         mwlTextInputAutocomplete
+        [keyboardShortcut]="shortcut"
         [findChoices]="findChoices"
         [getChoiceLabel]="getChoiceLabel">
       </textarea>
@@ -51,5 +52,9 @@ export class DemoComponent {
 
   getChoiceLabel(choice: string) {
     return `@${choice} `;
+  }
+
+  shortcut(event: KeyboardEvent): boolean {
+    return (event.keyCode === 32 || event.code === '32') && event.ctrlKey;
   }
 }
