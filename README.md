@@ -14,11 +14,11 @@ https://mattlewis92.github.io/angular-text-input-autocomplete/
 
 ## Table of contents
 
-* [About](#about)
-* [Installation](#installation)
-* [Documentation](#documentation)
-* [Development](#development)
-* [License](#license)
+- [About](#about)
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Development](#development)
+- [License](#license)
 
 ## About
 
@@ -29,13 +29,13 @@ A angular 6+ directive for adding autocomplete functionality to text input eleme
 Install through npm:
 
 ```
-npm install --save angular-text-input-autocomplete
+npm install angular-text-input-autocomplete
 ```
 
 For older browsers you will need the `keyboardevent-key-polyfill` polyfill:
 
 ```
-npm install --save keyboardevent-key-polyfill
+npm install keyboardevent-key-polyfill
 ```
 
 Then include in your apps module:
@@ -91,13 +91,59 @@ export class DemoComponent {
 
 You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-text-input-autocomplete/blob/master/demo/demo.component.ts).
 
-### Usage without a module bundler
+### Customising the menu component UI
 
+By default the component works out of the box with bootstrap, but if you're using a different UI framework then you can customise the menu component that gets displayed.
+
+1.  Create a custom menu component and add it to your components NgModule `declarations` (If you're not using ivy then you will need to add it to `entryComponents` as well)
+
+```typescript
+import { Component } from '@angular/core';
+import { TextInputAutocompleteMenuComponent } from 'angular-text-input-autocomplete';
+
+@Component({
+  template: `
+    I'm a custom menu template!
+    <ul 
+      *ngIf="choices?.length > 0"
+      #dropdownMenu
+      class="dropdown-menu"
+      [style.top.px]="position?.top"
+      [style.left.px]="position?.left">
+      <li
+        *ngFor="let choice of choices; trackBy:trackById"
+        [class.active]="activeChoice === choice">
+        <a
+          href="javascript:;"
+          (click)="selectChoice.next(choice)">
+          {{ choice }}
+        </a>
+      </li>
+    </ul>
+  `
+})
+class CustomMenuComponent extends TextInputAutocompleteMenuComponent {}
 ```
-<script src="node_modules/angular-text-input-autocomplete/bundles/angular-text-input-autocomplete.umd.js"></script>
-<script>
-    // everything is exported angularTextInputAutocomplete namespace
-</script>
+
+2.  Pass the component to the `menuComponent` input of the `mwlTextInputAutocomplete` directive
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'mwl-demo-app',
+  template: `
+    <mwl-text-input-autocomplete-container>
+      <textarea
+        mwlTextInputAutocomplete
+        [menuComponent]="menuComponent">
+      </textarea>
+    </mwl-text-input-autocomplete-container>
+  `
+})
+export class DemoComponent {
+  menuComponent = CustomMenuComponent;
+}
 ```
 
 ## Documentation
@@ -113,8 +159,8 @@ https://mattlewis92.github.io/angular-text-input-autocomplete/docs/
 
 ### Prepare your environment
 
-* Install [Node.js](http://nodejs.org/) and NPM
-* Install local dev dependencies: `npm install` while current directory is this repo
+- Install [Node.js](http://nodejs.org/) and NPM
+- Install local dev dependencies: `npm install` while current directory is this repo
 
 ### Development server
 

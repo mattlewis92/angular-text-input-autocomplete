@@ -25,6 +25,7 @@ import { By } from '@angular/platform-browser';
         [findChoices]="findChoices"
         [getChoiceLabel]="getChoiceLabel"
         [triggerCharacter]="triggerCharacter"
+        [keyboardShortcut]="shortcut"
         [searchRegexp]="searchRegexp"
         [menuComponent]="menuComponent"
         [closeMenuOnBlur]="closeMenuOnBlur"
@@ -46,6 +47,8 @@ class TestComponent {
   menuHidden = sinon.spy();
   choiceSelected = sinon.spy();
   closeMenuOnBlur = false;
+  shortcut = (event: KeyboardEvent) =>
+    (event.keyCode === 32 || event.code === '32') && event.ctrlKey;
 }
 
 @Component({
@@ -127,6 +130,15 @@ describe('text-input-autocomplete directive', () => {
 
   it('should show a menu when the trigger character is typed', () => {
     typeInTextarea('test @');
+    expect(getMenu()).to.be.ok;
+  });
+
+  it('should show a menu when the shortcut combo is typed', () => {
+    const event = new KeyboardEvent('keydown', {
+      code: '32',
+      ctrlKey: true
+    });
+    textarea.nativeElement.dispatchEvent(event);
     expect(getMenu()).to.be.ok;
   });
 
